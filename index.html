@@ -1,50 +1,13 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#17161a">
-  <meta name="description" content="منصة المتابعة والإنجاز">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./icon-192.png">
-  <title>منصة المتابعة والإنجاز</title>
-  <script src="./config.js"></script>
-  <style>
-    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Tahoma,Arial,sans-serif;background:#16171b;color:#f6f0ea}
-    .shell{height:100%;display:flex;flex-direction:column}.status{min-height:42px;padding:8px 14px;background:#201b18;color:#e9ddd2;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;border-bottom:1px solid #ffffff19}
-    .status strong{color:#ffb067}.status a{color:#ffd0a8;text-decoration:none;border:1px solid #ffffff30;padding:5px 10px;border-radius:8px;white-space:nowrap}
-    iframe{display:block;border:0;width:100%;flex:1;min-height:0;background:#17161a}
-    .problem{margin:auto;width:min(640px,calc(100% - 28px));padding:24px;border-radius:16px;background:#2a2522;border:1px solid #ffffff24;line-height:1.8}
-    .problem code{direction:ltr;display:block;text-align:left;overflow-wrap:anywhere;padding:10px;background:#17161a;border-radius:8px;color:#ffd0a8;margin:10px 0}
-    .hidden{display:none!important}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#17161a"><meta name="description" content="بوابة منصة المتابعة والإنجاز"><title>منصة المتابعة والإنجاز</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 15% 15%,#75401f 0,transparent 35%),linear-gradient(140deg,#2c2724,#16171b 65%);font-family:Tahoma,Arial,sans-serif;color:#f6f0ea}.box{width:min(520px,100%);padding:30px;border:1px solid #ffffff25;border-radius:22px;background:#ffffff0d;box-shadow:0 20px 60px #0006;text-align:center}.logo{width:60px;height:60px;margin:0 auto 16px;display:grid;place-items:center;border-radius:18px;background:#f5822028;color:#ffb067;font-size:30px}.sub{color:#c8bdb4;line-height:1.9}.btn{display:inline-block;margin-top:16px;padding:13px 22px;border-radius:12px;background:linear-gradient(135deg,#f58220,#d85d0b);color:white;text-decoration:none;font-weight:bold}.small{font-size:12px;color:#bfb3a8;margin-top:18px;line-height:1.8}.error{color:#ffb6a8;background:#a72b2b22;border:1px solid #ff777755;border-radius:10px;padding:12px;margin-top:14px;overflow-wrap:anywhere}
+</style>
+<script>/* ضع رابط Google Apps Script المنشور بين علامتي الاقتباس */ window.LOHAT_APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbzTPOLkaOosxdq-K58VlC6HhCk0i2XxMShsAl-QvWK4gfE5c_x9QyH4NJpr-zo2oUen/exec';</script>
 </head>
-<body>
-  <div class="shell">
-    <div class="status">
-      <span><strong>منصة المتابعة والإنجاز</strong> · الواجهة من Google Apps Script · قاعدة البيانات في Google Drive</span>
-      <a id="directLink" href="#" target="_blank" rel="noopener">فتح المنصة مباشرة</a>
-    </div>
-    <div id="problem" class="problem hidden">
-      <h2>يلزم ضبط رابط Google Apps Script</h2>
-      <p>افتح ملف <b>config.js</b> في مستودع GitHub، واستبدل النص الموجود فيه برابط Web app الذي ينتهي بـ <b>/exec</b>، ثم احفظ التعديل.</p>
-      <code>window.LOHAT_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/…/exec';</code>
-      <p>بعد ذلك أعد تحميل صفحة GitHub Pages.</p>
-    </div>
-    <iframe id="appFrame" title="منصة المتابعة والإنجاز" allow="clipboard-read; clipboard-write; geolocation; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-  </div>
-  <script>
-  (function(){
-    'use strict';
-    var raw=String(window.LOHAT_APPS_SCRIPT_URL||'').trim();
-    var frame=document.getElementById('appFrame');
-    var problem=document.getElementById('problem');
-    var link=document.getElementById('directLink');
-    var valid=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(raw);
-    if(!valid){frame.classList.add('hidden');link.classList.add('hidden');problem.classList.remove('hidden');return;}
-    link.href=raw;
-    frame.src=raw;
-  })();
-  </script>
-</body>
-</html>
+<body><main class="box"><div class="logo">◈</div><h1>منصة المتابعة والإنجاز</h1><p class="sub">بوابة الدخول إلى المنصة. تُشغّل واجهة العمل على Google Apps Script وتحفظ البيانات في Google Drive.</p><a id="openApp" class="btn" href="#">فتح المنصة</a><div id="msg" class="small">اضغط الزر لفتح التطبيق مباشرة في نفس النافذة. هذا الأسلوب يتجنب مشكلات عرض تطبيق Google داخل إطار مضمّن.</div><div class="small">إذا لم يفتح الرابط، اختبر رابط /exec مباشرة وتحقق من صلاحية النشر في Google Apps Script.</div></main>
+<script>
+(function(){var u=String(window.LOHAT_APPS_SCRIPT_URL||'').trim();var a=document.getElementById('openApp'),m=document.getElementById('msg');var ok=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u);if(!ok){a.removeAttribute('href');a.style.opacity='.45';a.style.pointerEvents='none';m.className='error';m.textContent='رابط Google Apps Script غير مضبوط. عدّل السطر PASTE_WEB_APP_URL_HERE وضع رابط Web app الذي ينتهي بـ /exec.';return;}a.href=u;a.target='_self';a.rel='noopener';})();
+</script></body></html>
