@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17161a">
+  <meta name="description" content="منصة المتابعة والإنجاز">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <title>منصة المتابعة والإنجاز</title>
+  <script src="./config.js"></script>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Tahoma,Arial,sans-serif;background:#16171b;color:#f6f0ea}
+    .shell{height:100%;display:flex;flex-direction:column}.status{min-height:42px;padding:8px 14px;background:#201b18;color:#e9ddd2;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;border-bottom:1px solid #ffffff19}
+    .status strong{color:#ffb067}.status a{color:#ffd0a8;text-decoration:none;border:1px solid #ffffff30;padding:5px 10px;border-radius:8px;white-space:nowrap}
+    iframe{display:block;border:0;width:100%;flex:1;min-height:0;background:#17161a}
+    .problem{margin:auto;width:min(640px,calc(100% - 28px));padding:24px;border-radius:16px;background:#2a2522;border:1px solid #ffffff24;line-height:1.8}
+    .problem code{direction:ltr;display:block;text-align:left;overflow-wrap:anywhere;padding:10px;background:#17161a;border-radius:8px;color:#ffd0a8;margin:10px 0}
+    .hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="status">
+      <span><strong>منصة المتابعة والإنجاز</strong> · الواجهة من Google Apps Script · قاعدة البيانات في Google Drive</span>
+      <a id="directLink" href="#" target="_blank" rel="noopener">فتح المنصة مباشرة</a>
+    </div>
+    <div id="problem" class="problem hidden">
+      <h2>يلزم ضبط رابط Google Apps Script</h2>
+      <p>افتح ملف <b>config.js</b> في مستودع GitHub، واستبدل النص الموجود فيه برابط Web app الذي ينتهي بـ <b>/exec</b>، ثم احفظ التعديل.</p>
+      <code>window.LOHAT_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/…/exec';</code>
+      <p>بعد ذلك أعد تحميل صفحة GitHub Pages.</p>
+    </div>
+    <iframe id="appFrame" title="منصة المتابعة والإنجاز" allow="clipboard-read; clipboard-write; geolocation; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <script>
+  (function(){
+    'use strict';
+    var raw=String(window.LOHAT_APPS_SCRIPT_URL||'').trim();
+    var frame=document.getElementById('appFrame');
+    var problem=document.getElementById('problem');
+    var link=document.getElementById('directLink');
+    var valid=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(raw);
+    if(!valid){frame.classList.add('hidden');link.classList.add('hidden');problem.classList.remove('hidden');return;}
+    link.href=raw;
+    frame.src=raw;
+  })();
+  </script>
+</body>
+</html>
